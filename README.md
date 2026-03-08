@@ -46,19 +46,22 @@ AAAVLM 采用 **Encoder + Projector + LLM** 的三段式架构，专为医学影
 * **数据分布**：当前基线权重主要基于数据集中的 **MRI 单模态数据** 进行监督微调 (SFT)，在包含 CT/MRI 的全量测试集上展现了优异的跨模态泛化潜力。
 * **严苛评测**：摒弃了常规脚本中易造成“幻觉骗分”的子串匹配 (如 `normal in abnormal`)，采用了**严格去标点与正则词边界 (`\b`)** 的纯净评测协议，确保分数的绝对真实性。
 
-**RadImageNet-VQA Test-set Results (SFT Baseline):**
+**RadImageNet-VQA Test-set Results (Special VLM Training on RadImageNet-VQA Training Set):**
 
 | Model | | Anatomy | | | Abnormality | | Pathology | | | Average |
 |-------|------|---------|--------|------|-------|------|---------|--------|------|-----|
 | | Open | Closed+ | Closed– | MC | Closed | Open | Closed+ | Closed– | MC | |
 | **AAAVLM-0.6B** | 65.80 | 81.50 | 66.70 | 77.90 | 71.40 | 26.60 | 57.86 | 66.28 | 46.60 | **62.29** |
 
-> *注：该均分 (62.29%) 在同等规模的医疗特化模型中处于领先地位，并具备在有限算力下快速复现和二次开发的优势。*
+与多个通用与医疗专用视觉语言模型的 **zero-shot** 评测结果相比，AAAVLM 作为小模展现了一定的竞争力。
 
-作为对比，以下是在 **RadImageNet-VQA** 上不同模型 0 样本测试的结果：
+[image](asset\aaavlm_parameter_efficiency.png)
 
-引用来源：https://huggingface.co/datasets/raidium/RadImageNet-VQA
+[具体结果链接](https://huggingface.co/datasets/raidium/RadImageNet-VQA)
 
+
+
+引用来源：
 **Zero-shot accuracies (%) of VLMs on RadImageNet-VQA benchmark.** Results are reported across anatomy recognition, abnormality detection (*Abn*), and pathology identification using four question formats: *Open* (free-form), *Closed+* (always 'yes' as true answer), *Closed–* (always 'no'), and *MC* (multiple-choice).
 
 | Model | | Anatomy | | | Abnormality | | Pathology | | | Average |
