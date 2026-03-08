@@ -20,6 +20,8 @@
 
 > **A**ny-dimension **A**ligned **A**natomy **VLM**，3D/2D 统一的参数医学影像视觉语言模型。
 
+![example image](asset\example.svg)
+
 ---
 
 ## 🎯 项目简介
