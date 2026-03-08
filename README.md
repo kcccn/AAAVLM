@@ -132,10 +132,8 @@ bash AAAVLM/scripts/vlm_finetune_RadImageNet_VQA_instruct.sh
 
 | 阶段 | 格式 | 文件示例 | 每行核心字段 |
 | --- | --- | --- | --- |
-| **Stage 1 (MIM)** | JSONL | `mim.jsonl` <br>
-
-<br> `vqa.jsonl` | `{"image": path, "type": "2D" |
-| **Stage 2/3 (VLM)** | JSONL | `vqa.jsonl` | `{"image": path, "question": text, "answer": text, "type": "2D" |
+| **Stage 1 (MIM)** | JSONL | `mim.jsonl` | `{"image": path, "type": "2D}` |
+| **Stage 2/3 (VLM)** | JSONL | `vqa.jsonl` | `{"image": path, "question": text, "answer": text, "type": "2D"}` |
 
 * **路径支持**：可直接指定 `.jsonl` 文件，或指向目录（代码将依次查找 `mim.jsonl`、`data.jsonl`、`vqa.jsonl`）。
 * **自定义数据集**：适配新数据集时，只需按上述 JSONL 格式产出映射关系即可无缝参与训练。
