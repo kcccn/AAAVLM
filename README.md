@@ -56,36 +56,17 @@ AAAVLM 采用 **Encoder + Projector + LLM** 的三段式架构，专为医学影
 | | Open | Closed+ | Closed– | MC | Closed | Open | Closed+ | Closed– | MC | |
 | **AAAVLM-0.6B** | 65.80 | 81.50 | 66.70 | 77.90 | 71.40 | 26.60 | 57.86 | 66.28 | 46.60 | **62.29** |
 
-与多个通用与医疗专用视觉语言模型的 **zero-shot** 评测结果相比，AAAVLM 作为小模展现了一定的竞争力。
+与多个通用与医疗专用视觉语言模型的 **zero-shot** 评测结果相比，AAAVLM 作为小模型展现了一定的竞争力。
 
-[image](asset\aaavlm_parameter_efficiency.png)
+<div align="center">
+  <img src="asset/aaavlm_parameter_efficiency.png" width="600px" />
+  <p>AAAVLM 在 RadImageNet-VQA 上的参数效率与性能对比</p>
+</div>
+
+1. AAAVLM 虽然在 RadImageNet-VQA 上进行了专门的训练，但其参数规模远小于所有 zero-shot 基线模型，展现了一定潜力。
+2. AAAVLM 仅使用 MRI 数据进行训练，但在包含 CT/MRI 的全量测试集上展现了较好的跨模态泛化能力。
 
 [具体结果链接](https://huggingface.co/datasets/raidium/RadImageNet-VQA)
-
-
-
-引用来源：
-**Zero-shot accuracies (%) of VLMs on RadImageNet-VQA benchmark.** Results are reported across anatomy recognition, abnormality detection (*Abn*), and pathology identification using four question formats: *Open* (free-form), *Closed+* (always 'yes' as true answer), *Closed–* (always 'no'), and *MC* (multiple-choice).
-
-| Model | | Anatomy | | | Abnormality | | Pathology | | | Average |
-|-------|------|---------|--------|------|-------|------|---------|--------|------|-----|
-| | Open | Closed+ | Closed– | MC | Closed | Open | Closed+ | Closed– | MC | |
-| **General-purpose models** | | | | | | | | | | |
-| LLaVA-OneVision-Qwen2-7B | 48.4 | 82.7 | 81.3 | 88.7 | 49.8 | 16.0 | 55.3 | 61.3 | 33.6 | 57.5 |
-| Qwen2.5-VL-3B-Instruct | 37.7 | 83.7 | 77.1 | 77.9 | 70.5 | 10.0 | 78.1 | 21.4 | 34.8 | 54.6 |
-| Qwen2.5-VL-7B-Instruct | 37.5 | 84.9 | 79.1 | 80.5 | 69.5 | 9.8 | 69.2 | 47.4 | 30.1 | 56.4 |
-| InternVL3.5-8B | 50.9 | _98.1_ | 75.9 | **93.3** | 58.9 | 9.9 | _85.9_ | 27.8 | 41.8 | 60.3 |
-| InternVL3.5-14B | 56.6 | **98.2** | 74.4 | 89.9 | **74.4** | 11.7 | **86.7** | 33.7 | **47.1** | **63.6** |
-| GPT-5 | 44.3 | 72.4 | 81.8 | 89.3 | 27.5 | 15.8 | 54.9 | 68.3 | 41.2 | 54.9 |
-| Gemini 2.5 Pro | **65.7** | 76.5 | 81.9 | 88.8 | 17.8 | _21.1_ | 50.2 | 30.1 | 44.4 | 52.9 |
-| **Medical-specialized models** | | | | | | | | | | |
-| LLaVA-Med-v1.5-mistral-7b | 44.3 | 89.9 | 55.3 | 58.1 | 22.4 | 10.2 | 41.8 | 66.6 | 26.4 | 48.2 |
-| HuatuoGPT-Vision-7B | 45.4 | 82.5 | _89.0_ | 88.3 | 60.6 | 13.6 | 65.5 | 69.2 | _44.6_ | 48.9 |
-| medgemma-4b-it | _62.9_ | 76.4 | 82.5 | 84.8 | 55.4 | **30.6** | 54.2 | 77.4 | 36.8 | 51.5 |
-| Lingshu-7B | 49.6 | 90.7 | 85.1 | 88.9 | 47.9 | 15.7 | 57.0 | _78.8_ | 29.6 | _60.4_ |
-| Lingshu-32B | 45.2 | 75.5 | **92.1** | _89.3_ | 54.5 | 14.4 | 46.4 | **88.8** | 31.7 | 59.8 |
-
-**Bold** = best, *italic* = second best
 
 ---
 
