@@ -20,7 +20,10 @@
 
 > **A**ny-dimension **A**ligned **A**natomy **VLM**，3D/2D 统一的参数医学影像视觉语言模型。
 
-![example image](asset\example.svg)
+<div align="center">
+  <img src="asset/example.svg" width="600px" />
+  <p>AAAVLM 在 RadImageNet-VQA 上的推理示例</p>
+</div>
 
 ---
 
